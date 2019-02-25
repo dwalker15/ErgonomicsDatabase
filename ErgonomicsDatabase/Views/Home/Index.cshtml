@@ -7,4 +7,39 @@
     </li>
 }
 
-<h1>Home</h1>
+<div class="jumbotron">
+
+        Object type: 
+        <select name="object">
+            <option value="allobject">All</option>
+            <option value="doorhandle">Door Handle</option>
+            <option value="key">Key</option>
+        </select>
+
+        Gender:
+        <select name="gender">
+            <option value="allgender">All</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+</div>
+
+Results:
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+        <hr />
+            <table class="table table-sm table-hover" id="myTable">
+            <thead class="thead-light">
+                <tr>
+                    <th>Torque Type</th>
+                    <th>Posture</th>
+                    <th>Data Collection</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-white"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
