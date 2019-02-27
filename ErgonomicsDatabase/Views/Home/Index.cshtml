@@ -1,4 +1,6 @@
-﻿@section navItems {
+﻿
+
+@section navItems {
     <li class="nav-item">
         <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link"><b>Home</b></a>
     </li>
@@ -7,9 +9,19 @@
     </li>
 }
 
-<div class="jumbotron">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#torque" role="tab" aria-controls="home" aria-selected="true">Torque</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#force" role="tab" aria-controls="profile" aria-selected="false">Force</a>
+    </li>
+</ul>
 
-        Object type: 
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="torque" role="tabpanel" aria-labelledby="home-tab">
+        <br />
+        Object type:
         <select name="object">
             <option value="allobject">All</option>
             <option value="doorhandle">Door Handle</option>
@@ -22,24 +34,38 @@
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
-</div>
+        <br />
 
-Results:
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-        <hr />
-            <table class="table table-sm table-hover" id="myTable">
-            <thead class="thead-light">
-                <tr>
-                    <th>Torque Type</th>
-                    <th>Posture</th>
-                    <th>Data Collection</th>
-                    <th>Year</th>
-                </tr>
-            </thead>
-            <tbody class="tbody-white"></tbody>
-            </table>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <hr />
+                    <table class="table table-bordered table-hover shadow-sm rounded" id="myTable">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Object</th>
+                                <th>Axis</th>
+                                <th>Rotation</th>
+                                <th>Posture</th>
+                                <th>Hand</th>
+                                <th>Subjects</th>
+                                <th>Subject Age</th>
+                                <th>Mean Strength</th>
+                                <th>Strength SD</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-white"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
+
+    </div>
+    <div class="tab-pane fade" id="force" role="tabpanel" aria-labelledby="profile-tab">
+        <h3>Force</h3>
     </div>
 </div>
+
