@@ -1,4 +1,5 @@
 ﻿
+@model ErgonomicsDatabase.Models.ViewModels.HomeViewModel
 
 @section navItems {
     <li class="nav-item">
@@ -21,20 +22,27 @@
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="torque" role="tabpanel" aria-labelledby="home-tab">
         <br />
-        Object type:
-        <select name="object">
-            <option value="allobject">All</option>
-            <option value="doorhandle">Door Handle</option>
-            <option value="key">Key</option>
-        </select>
 
-        Gender:
-        <select name="gender">
-            <option value="allgender">All</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        <br />
+        <form>
+            <div class="col-12 col-md-2">
+                <div class="form-group mb-3">
+                    <label for="handle">Handle Type</label>
+                    <select class="custom-select" asp-for="HandleID" asp-items="@Model.Handles">
+                        <option>All</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-2">
+                <div class="form-group mb-3">
+                    <label for="posture">Posture</label>
+                    <select class="custom-select" asp-for="PostureID" asp-items="@Model.Postures">
+                        <option>All</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
         <br />
         <div class="container">
@@ -61,9 +69,8 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+
     <div class="tab-pane fade" id="force" role="tabpanel" aria-labelledby="profile-tab">
         <h3>Force</h3>
     </div>
