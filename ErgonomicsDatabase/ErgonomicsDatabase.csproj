@@ -20,5 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Login\Index.html" />
+    <Content Remove="NewEntryPage.cshtml" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 </Project>
