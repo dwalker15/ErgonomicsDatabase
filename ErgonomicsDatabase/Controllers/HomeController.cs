@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ErgonomicsDatabase.Models;
+using ErgonomicsDatabase.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ErgonomicsDatabase.Controllers
 {
@@ -12,7 +14,16 @@ namespace ErgonomicsDatabase.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var vm = new HomeViewModel();
+            using (PrototypeDatabaseContext db = new PrototypeDatabaseContext())
+            {
+                vm.Handles = db.TObjectHandle.Select(a => new SelectListItem()
+                {
+                    Value = a.IObjectHandleId.ToString(),
+                    Text = a.VcObjectHandle
+                }).ToList();
+            }
+            return View(vm);
         }
 
         public IActionResult About()

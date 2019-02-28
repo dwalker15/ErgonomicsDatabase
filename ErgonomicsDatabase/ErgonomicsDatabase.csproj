@@ -17,5 +17,6 @@
 
   <ItemGroup>
     <Content Remove="NewEntryPage.cshtml" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 </Project>
