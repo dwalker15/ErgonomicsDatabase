@@ -15,4 +15,10 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Login\Index.html" />
+  </ItemGroup>
 </Project>
