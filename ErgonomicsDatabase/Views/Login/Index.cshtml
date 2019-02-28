@@ -1,0 +1,113 @@
+﻿@{
+    Layout = "_EmptyLayout";
+}
+
+@section head {
+<environment include="Development">
+    <link rel="stylesheet" href="~/css/login.css" />
+</environment>
+}
+
+@section scripts {
+<environment include="Development">
+    <script src="~/js/login.js" asp-append-version="true"></script>
+</environment>
+}
+
+<main class="container-fluid" role="main">
+    <div class="row h-100">
+        <div class="col-12 col-md-6 col-lg-5 bg-white">
+            <img src="~/images/saturn-nav.png" alt="Saturn Ergonomics Logo" class="logo mt-4 ml-3" />
+            <div class="d-flex justify-content-center align-items-center h-100 w-100">
+                <div class="col-12 col-sm-10 col-md-12 col-lg-10">
+                    <h1 class="text-center title">Ergonomics Database</h1>
+                    <hr />
+                    <form class="needs-validation" id="loginForm" novalidate>
+                        <p class="text-muted text-center">Welcome back! Please log in to your account.</p>
+                        <div class="form-row">
+                            <div class="col-12 mb-3">
+                                <label for="loginEmail" class="sr-only">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend" id="loginEmailIcon">
+                                        <span class="input-group-text"><i class="fas fa-envelope fa-fw"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control pl-1 bl-0 rounded-right" id="loginEmail" maxlength="128" placeholder="Email" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="loginPassword" class="sr-only">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend" id="loginPasswordIcon">
+                                        <span class="input-group-text"><i class="fas fa-key fa-fw"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control pl-1 bl-0 rounded-right" id="loginPassword" placeholder="Password" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid password.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-green btn-block" type="submit">Login</button>
+                        <p class="mt-3 text-center text-muted">
+                            Don't have an account? 
+                            <a href="#" class="text-muted register">Register here</a>
+                        </p>
+                    </form>
+
+                    <form class="needs-validation" id="registerForm" novalidate>
+                        <p class="text-muted text-center">Hello! Please request an account to get started.</p>
+                        <div class="form-row">
+                            <div class="col-12 mb-3">
+                                <label for="registerName" class="sr-only">Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend" id="registerNameIcon">
+                                        <span class="input-group-text"><i class="fas fa-user fa-fw"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control pl-1 bl-0 rounded-right" id="registerName" maxlength="128" placeholder="Name" required>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Your name is required.
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="registerEmail" class="sr-only">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend" id="registerEmailIcon">
+                                        <span class="input-group-text"><i class="fas fa-envelope fa-fw"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control pl-1 bl-0 rounded-right" id="registerEmail" maxlength="128" placeholder="Email" required>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email.
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="registerPassword" class="sr-only">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend" id="registerPasswordIcon">
+                                        <span class="input-group-text"><i class="fas fa-key fa-fw"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control pl-1 bl-0 rounded-right" id="registerPassword" placeholder="Password" required>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid password.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-green btn-block" type="submit">Register</button>
+                        <p class="mt-3 text-center text-muted">
+                            Already have an account?
+                            <a href="#" class="text-muted login">Login here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-6 col-lg-7 bg-gradient">
+
+        </div>
+    </div>
+</main>

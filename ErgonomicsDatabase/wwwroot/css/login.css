@@ -1,0 +1,94 @@
+﻿.bl-0 {
+    border-left: none;
+}
+
+.bg-gradient {
+    background-image: linear-gradient(45deg, #333, #5a5454);
+}
+
+.bg-white {
+    background-color: #fbfbfb;
+}
+
+.btn-green {
+    background-color: #119b00;
+    color: #fbfbfb;
+    border: 1px solid #0e8200;
+}
+
+    .btn-green:hover,
+    .btn-green:focus,
+    .btn-green:active {
+        background-color: #0e8200;
+        color: #fff;
+    }
+
+.invalid .input-group-text {
+    border-color: rgb(220, 53, 69);
+}
+
+.valid .input-group-text {
+    border-color: #28a745;
+}
+
+.logo {
+    position: absolute;
+    width: 80px;
+    height: auto;
+}
+
+.input-group-text {
+    color: #ced4da;
+    background-color: #fff;
+}
+
+.login, .register {
+    text-decoration: underline;
+}
+
+    .login:hover,
+    .login:focus,
+    .login:active,
+    .register:hover,
+    .register:focus,
+    .register:active {
+        color: #363B3F !important;
+    }
+
+main {
+    height: 100vh;
+}
+
+#registerForm {
+    display: none;
+}
+
+.title {
+    font-size: 28px;
+}
+
+@media (min-width: 768px) {
+    .bg-gradient {
+        border-left: 2px solid #119b00;
+    }
+
+    .bg-white {
+        border-right: 2px solid #119b00;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo {
+        width: 60px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+@media (max-height: 500px) {
+    .logo {
+        display: none;
+    }
+}
