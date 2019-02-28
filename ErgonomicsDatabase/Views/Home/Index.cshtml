@@ -3,42 +3,45 @@
         <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link"><b>Home</b></a>
     </li>
     <li class="nav-item">
-        <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link">Manage Account</a>
+        <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link">Manage My Account</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="Home" asp-action="Admin" class="nav-link">Admin</a>
     </li>
 }
 
 <div class="jumbotron">
 
-        Object type: 
-        <select name="object">
-            <option value="allobject">All</option>
-            <option value="doorhandle">Door Handle</option>
-            <option value="key">Key</option>
-        </select>
+    Object type:
+    <select name="object">
+        <option value="allobject">All</option>
+        <option value="doorhandle">Door Handle</option>
+        <option value="key">Key</option>
+    </select>
 
-        Gender:
-        <select name="gender">
-            <option value="allgender">All</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+    Gender:
+    <select name="gender">
+        <option value="allgender">All</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
 </div>
 
 Results:
 <div class="container">
     <div class="row">
         <div class="col-12">
-        <hr />
+            <hr />
             <table class="table table-sm table-hover" id="myTable">
-            <thead class="thead-light">
-                <tr>
-                    <th>Torque Type</th>
-                    <th>Posture</th>
-                    <th>Data Collection</th>
-                    <th>Year</th>
-                </tr>
-            </thead>
-            <tbody class="tbody-white"></tbody>
+                <thead class="thead-light">
+                    <tr>
+                        <th>Torque Type</th>
+                        <th>Posture</th>
+                        <th>Data Collection</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody-white"></tbody>
             </table>
         </div>
     </div>
