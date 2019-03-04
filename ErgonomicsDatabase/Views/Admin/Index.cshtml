@@ -1,0 +1,57 @@
+﻿@section navItems {
+    <li class="nav-item">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+        <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link">Account</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="Admin" asp-action="Index" class="nav-link"><b>Admin</b></a>
+    </li>
+}
+
+@section title {
+    <title>Admin Dashboard</title>
+}
+
+@section head {
+    <style>
+        .card {
+            color: #242424;
+        }
+
+            .card:hover,
+            .card:focus,
+            .card:active {
+                color: #242424;
+                text-decoration: none;
+                background-color: rgb(248,248,248);
+            }
+    </style>
+}
+
+<h1 class="h2 text-center">Admin Dashboard</h1>
+<hr />
+<div class="row justify-content-center mb-4">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <a class="card text-center py-2 shadow-sm" href="#">
+            <div class="card-text">
+                <i class="fas fa-users fa-3x"></i><br />
+                Manage<br />
+                Users
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <a class="card text-center py-2 shadow-sm" href="/admin/addentry">
+            <div class="card-text">
+                <i class="fas fa-database fa-3x"></i><br />
+                Add<br />
+                Entry
+            </div>
+        </a>
+    </div>
+</div>
+
+

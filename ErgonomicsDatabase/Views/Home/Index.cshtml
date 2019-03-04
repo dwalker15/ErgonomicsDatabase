@@ -6,14 +6,19 @@
         <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link"><b>Home</b></a>
     </li>
     <li class="nav-item">
-        <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link">Manage My Account</a>
+        <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link">Account</a>
     </li>
     <li>
-        <a asp-area="" asp-controller="Home" asp-action="Admin" class="nav-link">Admin</a>
+        <a asp-area="" asp-controller="Admin" asp-action="Index" class="nav-link">Admin</a>
     </li>
-    <li class="nav-item">
-        <a asp-area="" asp-controller="Home" asp-action="NewEntry" class="nav-link">Manage Entries</a>
-    </li>
+}
+
+@section head {
+    <style>
+        .btn-success {
+            margin-top: 31px;
+        }
+    </style>
 }
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -27,12 +32,10 @@
 
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="torque" role="tabpanel" aria-labelledby="home-tab">
-        <br />
-
-        <form>
+        <div class="row mt-3">
             <div class="col-12 col-md-2">
                 <div class="form-group mb-3">
-                    <label for="handle">Handle Type</label>
+                    <label for="HandleID">Handle Type</label>
                     <select class="custom-select" asp-for="HandleID" asp-items="@Model.Handles">
                         <option>All</option>
                     </select>
@@ -41,44 +44,102 @@
 
             <div class="col-12 col-md-2">
                 <div class="form-group mb-3">
-                    <label for="posture">Posture</label>
+                    <label for="PostureID">Posture</label>
                     <select class="custom-select" asp-for="PostureID" asp-items="@Model.Postures">
                         <option>All</option>
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
 
-        <br />
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <hr />
-                    <table class="table table-bordered table-hover shadow-sm rounded" id="myTable">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Object</th>
-                                <th>Axis</th>
-                                <th>Rotation</th>
-                                <th>Posture</th>
-                                <th>Hand</th>
-                                <th>Subjects</th>
-                                <th>Subject Age</th>
-                                <th>Mean Strength</th>
-                                <th>Strength SD</th>
-                                <th>Source</th>
-                            </tr>
-                        </thead>
-                        <tbody class="tbody-white"></tbody>
-                    </table>
+            <div class="col-12 col-md-2">
+                <div class="form-group mb-3">
+                    <label for="">Rotations</label>
+                    <select class="custom-select">
+                        <option>All</option>
+                    </select>
                 </div>
             </div>
+
+            <div class="col-12 col-md-2">
+                <div class="form-group mb-3">
+                    <label for="">Hand</label>
+                    <select class="custom-select">
+                        <option>All</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-2">
+                <div class="form-group mb-3">
+                    <label for="">Axis</label>
+                    <select class="custom-select">
+                        <option>All</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-2">
+                <button class="btn btn-success">Filter</button>
+            </div>
         </div>
+        <hr />
+        <table class="table table-bordered table-hover shadow-sm rounded" id="myTable">
+            <thead class="thead-light">
+                <tr>
+                    <th>Object</th>
+                    <th>Axis</th>
+                    <th>Rotation</th>
+                    <th>Posture</th>
+                    <th>Hand</th>
+                    <th>Subjects</th>
+                    <th>Subject Age</th>
+                    <th>Mean Strength</th>
+                    <th>Strength SD</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-white">
+                <tr>
+                    <td>Round knob</td>
+                    <td>Vertical</td>
+                    <td>Clockwise</td>
+                    <td>Free</td>
+                    <td>Dominant</td>
+                    <td>9 Males</td>
+                    <td>2-5</td>
+                    <td>0.5</td>
+                    <td>0.28</td>
+                    <td>DTI-2002</td>
+                </tr>
+                <tr>
+                    <td>Round knob</td>
+                    <td>Vertical</td>
+                    <td>Clockwise</td>
+                    <td>Free</td>
+                    <td>Dominant</td>
+                    <td>7 Females</td>
+                    <td>2-5</td>
+                    <td>0.6</td>
+                    <td>0.28</td>
+                    <td>DTI-2002</td>
+                </tr>
+                <tr>
+                    <td>Round knob</td>
+                    <td>Horizontal</td>
+                    <td>Clockwise</td>
+                    <td>Free</td>
+                    <td>Dominant</td>
+                    <td>5 Males</td>
+                    <td>6-10</td>
+                    <td>1.31</td>
+                    <td>0.53</td>
+                    <td>DTI-2002</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="tab-pane fade" id="force" role="tabpanel" aria-labelledby="profile-tab">
         <h3>Force</h3>
     </div>
 </div>
-

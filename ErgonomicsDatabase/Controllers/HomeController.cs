@@ -12,7 +12,7 @@ namespace ErgonomicsDatabase.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ViewResult Index()
         {
             var vm = new HomeViewModel();
             using (PrototypeDatabaseContext db = new PrototypeDatabaseContext())
@@ -24,32 +24,6 @@ namespace ErgonomicsDatabase.Controllers
                 }).ToList();
             }
             return View(vm);
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult NewEntry()
-        {
-            return View();
-        }
-
-        public IActionResult Admin()
-        {
-            ViewData["Message"] = "Your admin page.";
-
-            return View();
         }
 
         public IActionResult Error()

@@ -18,10 +18,12 @@
 
   <ItemGroup>
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Login\Index.html" />
     <Content Remove="NewEntryPage.cshtml" />
     <Folder Include="Models\ViewModels\" />
+    <Content Remove="Views\Home\About.cshtml" />
   </ItemGroup>
 </Project>
