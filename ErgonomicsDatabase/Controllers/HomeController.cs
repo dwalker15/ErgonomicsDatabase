@@ -22,6 +22,30 @@ namespace ErgonomicsDatabase.Controllers
                     Value = a.IObjectHandleId.ToString(),
                     Text = a.VcObjectHandle
                 }).ToList();
+
+                vm.Postures = db.TPosture.Select(a => new SelectListItem()
+                {
+                    Value = a.IPostureId.ToString(),
+                    Text = a.VcPostureDetails
+                }).ToList();
+
+                vm.Rotations = db.TRotationAxis.Select(a => new SelectListItem()
+                {
+                    Value = a.TiRotationAxisId.ToString(),
+                    Text = a.VcRotationAxis
+                }).ToList();
+
+                vm.Hands = db.THand.Select(a => new SelectListItem()
+                {
+                    Value = a.IHandId.ToString(),
+                    Text = a.VcHand
+                }).ToList();
+
+                vm.Axes = db.TRotationAxis.Select(a => new SelectListItem()
+                {
+                    Value = a.TiRotationAxisId.ToString(),
+                    Text = a.VcRotationAxis
+                }).ToList();
             }
             return View(vm);
         }

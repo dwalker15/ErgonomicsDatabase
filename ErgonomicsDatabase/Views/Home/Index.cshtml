@@ -54,7 +54,7 @@
             <div class="col-12 col-md-2">
                 <div class="form-group mb-3">
                     <label for="">Rotations</label>
-                    <select class="custom-select">
+                    <select class="custom-select" asp-for="RotationID" asp-items="@Model.Rotations">
                         <option>All</option>
                     </select>
                 </div>
@@ -63,7 +63,7 @@
             <div class="col-12 col-md-2">
                 <div class="form-group mb-3">
                     <label for="">Hand</label>
-                    <select class="custom-select">
+                    <select class="custom-select" asp-for="HandID" asp-items="@Model.Hands">
                         <option>All</option>
                     </select>
                 </div>
@@ -72,7 +72,7 @@
             <div class="col-12 col-md-2">
                 <div class="form-group mb-3">
                     <label for="">Axis</label>
-                    <select class="custom-select">
+                    <select class="custom-select" asp-for="AxisID" asp-items="@Model.Axes">
                         <option>All</option>
                     </select>
                 </div>

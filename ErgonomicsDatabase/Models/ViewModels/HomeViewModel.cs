@@ -11,5 +11,14 @@ namespace ErgonomicsDatabase.Models.ViewModels
 
         public int PostureID { get; set; }
         public List<SelectListItem> Postures { get; set; }
+
+        public int RotationID { get; set; }
+        public List<SelectListItem> Rotations { get; set; }
+
+        public int HandID { get; set; }
+        public List<SelectListItem> Hands { get; set; }
+
+        public int AxisID { get; set; }
+        public List<SelectListItem> Axes { get; set; }
     }
 }
