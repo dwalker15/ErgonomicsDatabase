@@ -15,6 +15,7 @@ namespace ErgonomicsDatabase.Models
         {
         }
 
+        public virtual DbSet<SysUser> SysUser { get; set; }
         public virtual DbSet<TAction> TAction { get; set; }
         public virtual DbSet<TDimension> TDimension { get; set; }
         public virtual DbSet<TFile> TFile { get; set; }
@@ -36,12 +37,14 @@ namespace ErgonomicsDatabase.Models
         public virtual DbSet<TSubject> TSubject { get; set; }
         public virtual DbSet<TUnit> TUnit { get; set; }
         public virtual DbSet<TUser> TUser { get; set; }
+        public virtual DbSet<Tnotes> Tnotes { get; set; }
+        public virtual DbSet<Tprototype> Tprototype { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=tcp:prototypetestserver.database.windows.net,1433;Initial Catalog=Prototype Database;Persist Security Info=False;User ID=djw0017;Password=Djdwa35393696!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
@@ -49,6 +52,35 @@ namespace ErgonomicsDatabase.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.2-servicing-10034");
+
+            modelBuilder.Entity<SysUser>(entity =>
+            {
+                entity.HasKey(e => e.UserId)
+                    .HasName("PK__sysUser__1788CCAC6A6256C9");
+
+                entity.ToTable("sysUser");
+
+                entity.Property(e => e.UserId)
+                    .HasColumnName("UserID")
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserPassword)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<TAction>(entity =>
             {
@@ -505,9 +537,7 @@ namespace ErgonomicsDatabase.Models
 
                 entity.ToTable("tUser");
 
-                entity.Property(e => e.IUserId)
-                    .HasColumnName("iUserID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.IUserId).HasColumnName("iUserID");
 
                 entity.Property(e => e.BArchived).HasColumnName("bArchived");
 
@@ -520,12 +550,57 @@ namespace ErgonomicsDatabase.Models
                 entity.Property(e => e.VcPassword)
                     .IsRequired()
                     .HasColumnName("vcPassword")
+                    .HasMaxLength(64)
                     .IsUnicode(false);
 
                 entity.Property(e => e.VcUsername)
                     .IsRequired()
                     .HasColumnName("vcUsername")
                     .HasMaxLength(128)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Tnotes>(entity =>
+            {
+                entity.HasKey(e => e.InoteId);
+
+                entity.ToTable("TNotes");
+
+                entity.Property(e => e.InoteId).HasColumnName("INoteId");
+
+                entity.Property(e => e.IprototypeId).HasColumnName("IPrototypeId");
+
+                entity.Property(e => e.VcNote)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Iprototype)
+                    .WithMany(p => p.Tnotes)
+                    .HasForeignKey(d => d.IprototypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TNotes_TPrototype");
+            });
+
+            modelBuilder.Entity<Tprototype>(entity =>
+            {
+                entity.HasKey(e => e.IprototypeId);
+
+                entity.ToTable("TPrototype");
+
+                entity.Property(e => e.IprototypeId).HasColumnName("IPrototypeId");
+
+                entity.Property(e => e.IstudyYear).HasColumnName("IStudyYear");
+
+                entity.Property(e => e.VcDataCollection)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.VcPosture)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.VcTorqueType)
+                    .IsRequired()
                     .IsUnicode(false);
             });
         }
