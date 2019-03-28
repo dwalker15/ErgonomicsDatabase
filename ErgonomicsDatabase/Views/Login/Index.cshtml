@@ -1,17 +1,19 @@
-﻿@{
+﻿@model ErgonomicsDatabase.Models.ViewModels.LoginViewModel
+
+@{
     Layout = "_EmptyLayout";
 }
 
 @section head {
-<environment include="Development">
-    <link rel="stylesheet" href="~/css/login.css" />
-</environment>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/login.css" />
+    </environment>
 }
 
 @section scripts {
-<environment include="Development">
-    <script src="~/js/login.js" asp-append-version="true"></script>
-</environment>
+    <environment include="Development">
+        <script src="~/js/login.js" asp-append-version="true"></script>
+    </environment>
 }
 
 <main class="container-fluid" role="main">
@@ -52,48 +54,53 @@
                         </div>
                         <button class="btn btn-green btn-block" type="submit">Login</button>
                         <p class="mt-3 text-center text-muted">
-                            Don't have an account? 
+                            Don't have an account?
                             <a href="#" class="text-muted register">Register here</a>
                         </p>
                     </form>
 
-                    <form class="needs-validation" id="registerForm" novalidate>
+                    <form asp-controller="Login" asp-action="Register" method="post" class="needs-validation" id="registerForm" novalidate>
                         <p class="text-muted text-center">Hello! Please request an account to get started.</p>
                         <div class="form-row">
                             <div class="col-12 mb-3">
-                                <label for="registerName" class="sr-only">Name</label>
+                                <label asp-for="name" class="sr-only">Name</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend" id="registerNameIcon">
+                                    <div class="input-group-prepend" id="nameIcon">
                                         <span class="input-group-text"><i class="fas fa-user fa-fw"></i></span>
                                     </div>
-                                    <input type="text" class="form-control pl-1 bl-0 rounded-right" id="registerName" maxlength="128" placeholder="Name" required>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Your name is required.
+                                    <input asp-for="name" type="text" class="form-control pl-1 bl-0 rounded-right" maxlength="128" placeholder="Name" required>
+                                    <div class="invalid-feedback">
+                                        Your name is required.
+                                    </div>
+                                    @Html.ValidationMessage("name")
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
-                                <label for="registerEmail" class="sr-only">Email</label>
+                                <label asp-for="registerEmail" class="sr-only">Email</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend" id="registerEmailIcon">
                                         <span class="input-group-text"><i class="fas fa-envelope fa-fw"></i></span>
                                     </div>
-                                    <input type="email" class="form-control pl-1 bl-0 rounded-right" id="registerEmail" maxlength="128" placeholder="Email" required>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a valid email.
+                                    <input asp-for="registerEmail" type="email" class="form-control pl-1 bl-0 rounded-right" maxlength="128" placeholder="Email" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address.
+                                    </div>
+                                    @Html.ValidationMessage("registerEmail")
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
-                                <label for="registerPassword" class="sr-only">Password</label>
+                                <label asp-for="registerPassword" class="sr-only">Password</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend" id="registerPasswordIcon">
                                         <span class="input-group-text"><i class="fas fa-key fa-fw"></i></span>
                                     </div>
-                                    <input type="password" class="form-control pl-1 bl-0 rounded-right" id="registerPassword" placeholder="Password" required>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a valid password.
+                                    <input asp-for="registerPassword" type="password" class="form-control pl-1 bl-0 rounded-right" placeholder="Password" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,}$" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid password.
+                                        Passwords must be at least 8 characters long and contain at least one letter
+                                        and one number.
+                                    </div>
+                                    @Html.ValidationMessage("registerPassword")
                                 </div>
                             </div>
                         </div>

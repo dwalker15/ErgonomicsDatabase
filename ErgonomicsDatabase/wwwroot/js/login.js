@@ -36,12 +36,19 @@
 })();
 
 $(function() {
-    $('.register').on('click', function() {
+    if(window.location.href.indexOf("Register") > -1) {
+       $('#loginForm').hide();
+        $('#registerForm').show();
+    }
+
+    $('.register').on('click', function(e) {
+        e.preventDefault();
         $('#loginForm').slideUp();
         $('#registerForm').slideDown();
     });
 
-    $('.login').on('click', function() {
+    $('.login').on('click', function(e) {
+        e.preventDefault();
         $('#registerForm').slideUp();
         $('#loginForm').slideDown();
     });

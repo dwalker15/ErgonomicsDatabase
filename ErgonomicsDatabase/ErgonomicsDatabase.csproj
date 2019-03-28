@@ -19,11 +19,14 @@
   <ItemGroup>
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Login\Index.html" />
     <Content Remove="NewEntryPage.cshtml" />
     <Folder Include="Models\ViewModels\" />
     <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Shared\Error.cshtml" />
+    <Content Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
   </ItemGroup>
 </Project>

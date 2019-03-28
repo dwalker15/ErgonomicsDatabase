@@ -34,10 +34,11 @@ namespace ErgonomicsDatabase
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseStaticFiles();
+            app.UseStatusCodePagesWithRedirects("/Error/Error{0}");
 
             app.UseMvc(routes =>
             {

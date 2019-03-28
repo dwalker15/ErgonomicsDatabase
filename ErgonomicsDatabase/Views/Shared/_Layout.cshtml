@@ -48,8 +48,23 @@
             </button>
             <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarText">
                 <ul class="d-flex navbar-nav flex-row nav-space-between ml-md-4 w-100">
-                    @RenderSection("navItems", false)
-                    <li class="nav-item ml-auto">
+                    @if (IsSectionDefined("navItems"))
+                    {
+                        @RenderSection("navItems", false)
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link">Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Admin" asp-action="Index" class="nav-link">Admin</a>
+                        </li>
+                    }
+                    <li class="nav-item ml-auto" id="logoutLink">
                         <a asp-area="" asp-controller="" asp-action="" class="nav-link">Logout</a>
                     </li>
                 </ul>
