@@ -1,0 +1,18 @@
+﻿@section title {
+    <title>403: Unauthorized</title>
+}
+
+@section head {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/error.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/error.min.css" />
+    </environment>
+}
+
+<h2 class="error-heading text-center">Unauthorized</h2>
+
+<p class="error-body text-center">
+    You do not have access to the page you were trying to navigate to.
+</p>

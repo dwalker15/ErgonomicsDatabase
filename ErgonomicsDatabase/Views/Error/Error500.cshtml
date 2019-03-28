@@ -1,0 +1,20 @@
+﻿@section title {
+    <title>500: Internal Server Error</title>
+}
+
+@section head {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/error.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/error.min.css" />
+    </environment>
+}
+
+<h2 class="error-heading text-center">500</h2>
+
+<p class="error-body text-center">
+    There was an error processing your request.<br />
+    Please contact us at <a href="mailto:">email address TBD</a> if the 
+    problem persists.
+</p>

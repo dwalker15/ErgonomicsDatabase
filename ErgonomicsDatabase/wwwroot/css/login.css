@@ -2,14 +2,6 @@
     border-left: none;
 }
 
-.bg-gradient {
-    background-image: linear-gradient(45deg, #333, #5a5454);
-}
-
-.bg-white {
-    background-color: #fbfbfb;
-}
-
 .btn-green {
     background-color: #119b00;
     color: #fbfbfb;
@@ -23,23 +15,18 @@
         color: #fff;
     }
 
-.invalid .input-group-text {
-    border-color: rgb(220, 53, 69);
-}
-
-.valid .input-group-text {
-    border-color: #28a745;
-}
-
-.logo {
-    position: absolute;
-    width: 80px;
-    height: auto;
+.field-validation-error {
+    color: #dc3545;
+    margin-top: 5px;
 }
 
 .input-group-text {
     color: #ced4da;
     background-color: #fff;
+}
+
+.invalid .input-group-text {
+    border-color: rgb(220, 53, 69);
 }
 
 .login, .register {
@@ -55,6 +42,12 @@
         color: #363B3F !important;
     }
 
+.logo {
+    position: absolute;
+    width: 80px;
+    height: auto;
+}
+
 main {
     height: 100vh;
 }
@@ -63,17 +56,25 @@ main {
     display: none;
 }
 
+.rightDiv {
+    background-image: linear-gradient(45deg, #333, #5a5454);
+}
+
 .title {
     font-size: 28px;
 }
 
+.valid .input-group-text {
+    border-color: #28a745;
+}
+
 @media (min-width: 768px) {
-    .bg-gradient {
-        border-left: 2px solid #119b00;
+    .leftDiv {
+        border-right: 2px solid #119b00;
     }
 
-    .bg-white {
-        border-right: 2px solid #119b00;
+    .rightDiv {
+        border-left: 2px solid #119b00;
     }
 }
 
