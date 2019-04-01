@@ -16,6 +16,10 @@ namespace ErgonomicsDatabase.Models
         public int maleNumber { get; set; }
         public int ageMin { get; set; }
         public int ageMax { get; set; }
+        public string subjectDescription { get; set; }
+        public string rotationAxis { get; set; }
+        public string hand { get; set; }
+        public bool isDominant { get; set; }
         public int year { get; set; }
         public string source { get; set; }
     }

@@ -18,7 +18,7 @@
 
 <h2 class="text-center">New Entry</h2>
 <hr />
-<form asp-controller="Home" asp-action="NewEntry" method="post" class="needs-validation mb-4" novalidate>
+<form asp-controller="Home" id="entry-form" asp-action="NewEntry" method="post" class="needs-validation mb-4" novalidate>
     <div class="form-row">
         <div class="col-12 col-md-4 mb-3">
             <label asp-for="torqueType">Torque Type</label>
@@ -122,6 +122,39 @@
     </div>
     <div class="form-row">
         <div class="col-12 col-md-5 mb-3">
+            <label asp-for="subjectDescription">Subject Description</label>
+            <textarea class="form-control" rows="3" asp-for="subjectDescription" min="1900" max="2019" required></textarea>
+            <div class="invalid-feedback">
+                Subject description is required.
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-12 col-md-5 mb-3">
+            <label asp-for="rotationAxis">Rotation Axis</label>
+            <select class="form-control" asp-for="rotationAxis" min="1900" max="2019">
+                <option>Horizontal</option>
+                <option>Vertical</option>
+                <option>Not Applicable</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-12 col-md-5 mb-3">
+            <label asp-for="hand">Hand</label>
+            <select class="form-control" asp-for="hand" min="1900" max="2019">
+                <option>Right</option>
+                <option>Left</option>
+                <option>Neither</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+            <label asp-for="isDominant">Is Dominant?</label>
+            <input class="form-control" asp-for="isDominant" type="checkbox" autocomplete="off" maxlength="1024" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-12 col-md-5 mb-3">
             <label asp-for="year">Study Year</label>
             <input class="form-control" asp-for="year" type="number" min="1900" max="2019">
             <div class="invalid-feedback">
@@ -139,25 +172,8 @@
     <button class="btn btn-success" type="submit">Submit</button>
 </form>
 
-
 @section Scripts {
-    <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();</script>
+<environment include="Development">
+    <script src="~/js/admin.js" asp-append-version="true"></script>
+</environment>
 }
